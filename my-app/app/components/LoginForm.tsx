@@ -1,6 +1,4 @@
 "use client";
-// "use client" is needed because this component uses state (useState)
-// and reacts to user actions (typing, clicking). Those only work in the browser.
 
 import { useState } from "react";
 import type { FormEvent } from "react";
@@ -13,20 +11,16 @@ import {
   GoogleIcon,
 } from "./Icons";
 
-// A simple regular expression that checks an email looks like "name@site.com"
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// The shape of our error messages. Each one is optional because
-// a field only has an error message when something is wrong with it.
 type FormErrors = {
   email?: string;
   password?: string;
 };
 
 export default function LoginForm() {
-  const router = useRouter(); // lets us move to another page from code
+  const router = useRouter(); 
 
-  // ----- State: values React remembers and re-renders when they change -----
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -34,7 +28,6 @@ export default function LoginForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // ----- Validation: check the inputs and return a list of problems -----
   function validate(): FormErrors {
     const newErrors: FormErrors = {};
 
@@ -53,28 +46,22 @@ export default function LoginForm() {
     return newErrors;
   }
 
-  // ----- Runs when the user clicks "Log In" (or presses Enter) -----
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // stop the browser from reloading the page
+    event.preventDefault();
 
     const newErrors = validate();
     setErrors(newErrors);
 
-    // If there is at least one error, stop here and show the messages.
     if (Object.keys(newErrors).length > 0) {
       return;
     }
 
-    // Everything is valid! Pretend to log in for a moment, then go to the landing page.
-    // (In a real app you would send the email and password to your server here.)
     setIsLoading(true);
     setTimeout(() => {
       router.push("/landing");
     }, 800);
   }
 
-  // Returns the border classes for an input box.
-  // When there is an error the border turns red, otherwise it is gray (indigo when focused).
   function inputBorder(hasError: boolean) {
     return hasError
       ? "border-red-400 focus-within:ring-red-100"
@@ -90,9 +77,7 @@ export default function LoginForm() {
         Enter your email and password to access your account.
       </p>
 
-      {/* noValidate turns off the browser's own popups so we can show our own messages */}
       <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-5">
-        {/* ---------- Email ---------- */}
         <div>
           <label
             htmlFor="email"
@@ -120,7 +105,6 @@ export default function LoginForm() {
           )}
         </div>
 
-        {/* ---------- Password ---------- */}
         <div>
           <label
             htmlFor="password"
@@ -136,7 +120,6 @@ export default function LoginForm() {
             <LockIcon className="h-5 w-5 shrink-0 text-slate-500" />
             <input
               id="password"
-              // The type switches between "password" (dots) and "text" (readable)
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               value={password}
@@ -161,7 +144,6 @@ export default function LoginForm() {
           )}
         </div>
 
-        {/* ---------- Remember me + Forgot password ---------- */}
         <div className="flex items-center justify-between text-sm">
           <label className="flex cursor-pointer items-center gap-2 text-slate-700">
             <input
@@ -177,7 +159,6 @@ export default function LoginForm() {
           </a>
         </div>
 
-        {/* ---------- Submit button ---------- */}
         <button
           type="submit"
           disabled={isLoading}
@@ -187,14 +168,12 @@ export default function LoginForm() {
         </button>
       </form>
 
-      {/* ---------- "OR" divider ---------- */}
       <div className="my-6 flex items-center gap-4">
         <span className="h-px flex-1 bg-slate-200" />
         <span className="text-xs text-slate-400">OR</span>
         <span className="h-px flex-1 bg-slate-200" />
       </div>
 
-      {/* ---------- Google button (design only, it does not log in yet) ---------- */}
       <button
         type="button"
         className="flex w-full items-center justify-center gap-3 rounded-lg border border-slate-200 bg-white py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"

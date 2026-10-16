@@ -2,18 +2,15 @@ import Logo from "./components/Logo";
 import LoginForm from "./components/LoginForm";
 import { CheckCircleIcon } from "./components/Icons";
 
-// The things we list under "Welcome Back!"
 const benefits = [
   "Access your tasks anywhere",
   "Stay organized and focused",
   "Achieve more, every day",
 ];
 
-// This is the home page ("/"), so it is the first thing you see in the browser.
 export default function LoginPage() {
   return (
     <main className="flex min-h-screen bg-slate-50">
-      {/* ========== LEFT SIDE: welcome text (hidden on small screens) ========== */}
       <section className="relative hidden flex-1 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-indigo-100 p-12 lg:block">
         <Logo />
 
@@ -35,15 +32,12 @@ export default function LoginPage() {
           </ul>
         </div>
 
-        {/* Decorative shapes at the bottom (they stand in for the laptop photo) */}
         <div className="absolute -bottom-40 -left-24 h-96 w-[130%] rounded-[50%] bg-indigo-200/50" />
         <div className="absolute -bottom-56 left-10 h-96 w-[110%] rounded-[50%] bg-indigo-500/20" />
       </section>
 
-      {/* ========== RIGHT SIDE: the login card ========== */}
       <section className="flex flex-1 flex-col bg-white px-6 py-8 lg:px-12">
         <div className="flex items-center justify-between">
-          {/* On small screens the left side is hidden, so we show the logo here */}
           <div className="lg:invisible">
             <Logo />
           </div>

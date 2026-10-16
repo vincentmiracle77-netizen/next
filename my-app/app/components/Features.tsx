@@ -1,7 +1,6 @@
 import { BoltIcon, ShieldIcon, UsersIcon, PhoneIcon } from "./Icons";
 
-// Each feature has an icon, a title and a short description.
-// To add a new card, just add another object to this list!
+
 const features = [
   {
     icon: BoltIcon,
@@ -35,10 +34,9 @@ export default function Features() {
         </p>
       </div>
 
-      {/* 1 column on phones, 2 on tablets, 4 on large screens */}
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => {
-          const Icon = feature.icon; // capital letter so React treats it as a component
+          const Icon = feature.icon;
           return (
             <div
               key={feature.title}

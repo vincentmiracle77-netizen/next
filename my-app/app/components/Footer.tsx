@@ -6,7 +6,6 @@ import {
   InstagramIcon,
 } from "./Icons";
 
-// Footer columns. Each column has a heading and a list of links.
 const columns = [
   { heading: "Quick Links", links: ["Home", "Features", "Pricing", "About"] },
   {

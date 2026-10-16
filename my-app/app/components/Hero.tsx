@@ -1,7 +1,5 @@
 import { ArrowRightIcon } from "./Icons";
 
-// Sample data for the fake "My Tasks" card on the right side of the hero.
-// "color" is a Tailwind text color class for the due date.
 const tasks = [
   { title: "Design landing page", due: "Today", level: "High", color: "text-blue-600" },
   { title: "Build authentication", due: "Tomorrow", level: "Medium", color: "text-green-600" },
@@ -11,13 +9,11 @@ const tasks = [
 
 const sidebarItems = ["Dashboard", "My Tasks", "Calendar", "Settings"];
 
-// Small colored circles standing in for the "Trusted by" user photos
 const avatarColors = ["bg-amber-400", "bg-rose-400", "bg-sky-400", "bg-emerald-400"];
 
 export default function Hero() {
   return (
     <section id="home" className="mx-auto grid max-w-6xl items-center gap-12 bg-white px-6 py-16 lg:grid-cols-2">
-      {/* ---------- Left: text ---------- */}
       <div>
         <span className="inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
           Organize • Track • Achieve
@@ -65,13 +61,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ---------- Right: fake app preview ---------- */}
       <div className="relative">
-        {/* Purple blob behind the card */}
         <div className="absolute -right-6 -top-6 h-64 w-64 rounded-full bg-indigo-200/70 blur-2xl" />
 
         <div className="relative flex overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-100">
-          {/* Sidebar */}
           <div className="hidden w-36 shrink-0 border-r border-slate-100 p-4 sm:block">
             <p className="text-xs font-bold text-slate-900">TaskFlow</p>
             <ul className="mt-5 space-y-1">
@@ -90,7 +83,6 @@ export default function Hero() {
             </ul>
           </div>
 
-          {/* Task list */}
           <div className="flex-1 p-5">
             <h3 className="text-sm font-bold text-slate-900">My Tasks</h3>
             <div className="mt-3 rounded-md border border-slate-100 px-3 py-2 text-xs text-slate-400">
@@ -122,7 +114,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Small floating "Stay on track" card */}
         <div className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-lg bg-white px-4 py-3 shadow-lg ring-1 ring-slate-100">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white">
             ✓

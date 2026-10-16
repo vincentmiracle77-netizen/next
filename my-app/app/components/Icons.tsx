@@ -1,11 +1,9 @@
-// All the small icons live in this one file so other files stay clean.
-// Each icon is just an <svg>. We pass "className" so we can size/color it with Tailwind.
+
 
 type IconProps = {
   className?: string;
 };
 
-// Shared settings for the "outline" style icons
 const outline = {
   fill: "none",
   stroke: "currentColor",
@@ -52,7 +50,6 @@ export function EyeOffIcon({ className }: IconProps) {
 }
 
 export function CheckCircleIcon({ className }: IconProps) {
-  // A filled circle with a white tick inside
   return (
     <svg viewBox="0 0 24 24" className={className}>
       <circle cx="12" cy="12" r="12" fill="currentColor" />
@@ -113,7 +110,6 @@ export function ArrowRightIcon({ className }: IconProps) {
 }
 
 export function GoogleIcon({ className }: IconProps) {
-  // The multi-colored Google "G"
   return (
     <svg viewBox="0 0 24 24" className={className}>
       <path
@@ -136,7 +132,6 @@ export function GoogleIcon({ className }: IconProps) {
   );
 }
 
-// ----- Social icons (used in the footer) -----
 
 export function TwitterIcon({ className }: IconProps) {
   return (

@@ -4,7 +4,6 @@ export default function CallToAction() {
   return (
     <section id="cta" className="mx-auto max-w-6xl px-6 pb-16">
       <div className="flex flex-col items-center gap-8 rounded-2xl bg-indigo-50 p-8 md:flex-row md:p-10">
-        {/* Simple decorative circle standing in for the illustration */}
         <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-indigo-200 text-5xl">
           💻
         </div>

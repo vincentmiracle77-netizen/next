@@ -5,7 +5,6 @@
   --foreground: #111827;
 }
 
-/* Makes clicking anchor links (like #features) scroll smoothly */
 html {
   scroll-behavior: smooth;
 }
